@@ -21,7 +21,7 @@ return [
 
     // Create form
     'add'                 => 'Adicionar',
-    'back_to_all'         => 'Voltar para todos ',
+    'back_to_all'         => 'Voltar para todos(as) ',
     'cancel'              => 'Cancelar',
     'add_a_new'           => 'Adicionar ',
 
@@ -46,7 +46,7 @@ return [
     'language'          => 'Idioma',
 
     // CRUD table view
-    'all'                       => 'Todos ',
+    'all'                       => 'Todos(as) ',
     'in_the_database'           => 'no banco de dados',
     'list'                      => 'Lista',
     'actions'                   => 'Ações',
