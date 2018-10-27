@@ -15,14 +15,14 @@ return [
     'project_name' => 'Backpack',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<img src="http://www.osarrafo.com.br/v1/wp-content/uploads/2013/08/Logomarca-do-Programa-Melhor-em-Casa-Governo-Federal.png" style="width:30%">',
+    'logo_mini' => 'SAD',
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => '----',
 
     // Developer website. Link in footer.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'google.com',
 
     // Show powered by Laravel Backpack in the footer?
     'show_powered_by' => true,
