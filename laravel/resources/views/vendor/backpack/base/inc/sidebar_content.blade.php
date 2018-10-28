@@ -6,6 +6,7 @@
 
 
 <li><a href="{{ backpack_url('tipo_funcionario') }}"><i class='fa fa-link'></i> <span>Tipos de Funcionários</span></a></li>
+<li><a href="{{ backpack_url('funcionario') }}"><i class='fa fa-link'></i> <span>Funcionários</span></a></li>
 
 
 <li class="header">ENFERMAGEM</li>
