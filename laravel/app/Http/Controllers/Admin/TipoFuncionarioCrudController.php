@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\DoencaRequest as StoreRequest;
-use App\Http\Requests\DoencaRequest as UpdateRequest;
+use App\Http\Requests\TipoFuncionarioRequest as StoreRequest;
+use App\Http\Requests\TipoFuncionarioRequest as UpdateRequest;
 
 /**
- * Class DoencaCrudController
+ * Class TipoFuncionarioCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class DoencaCrudController extends CrudController
+class TipoFuncionarioCrudController extends CrudController
 {
     public function setup()
     {
@@ -22,9 +22,9 @@ class DoencaCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Doenca');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/doenca');
-        $this->crud->setEntityNameStrings('doença', 'doenças');
+        $this->crud->setModel('App\Models\TipoFuncionario');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/tipo_funcionario');
+        $this->crud->setEntityNameStrings('tipo de funcionário', 'tipos de funcionários');
 
         /*
         |--------------------------------------------------------------------------
@@ -38,15 +38,11 @@ class DoencaCrudController extends CrudController
             'type' => 'text'
         ]);
         $this->crud->addColumn([
-            'name' => 'cid', // The db column name
-            'label' => "CID", // Table column heading
-            'type' => 'text'
-        ]);
-        $this->crud->addColumn([
             'name' => 'descricao', // The db column name
             'label' => "Descrição", // Table column heading
             'type' => 'text'
         ]);
+
 
         $this->crud->addField([
 			'name' => 'nome',
@@ -54,18 +50,12 @@ class DoencaCrudController extends CrudController
             'type' => 'text'
         ]);
         $this->crud->addField([
-			'name' => 'cid',
-            'label' => "CID",
-            'type' => 'text'
-        ]);
-        $this->crud->addField([
 			'name' => 'descricao',
             'label' => "Descrição",
             'type' => 'text'
-		]);
+        ]);
 
-
-        // add asterisk for fields that are required in DoencaRequest
+        // add asterisk for fields that are required in TipoFuncionarioRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

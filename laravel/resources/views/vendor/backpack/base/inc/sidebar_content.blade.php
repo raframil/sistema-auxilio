@@ -5,8 +5,11 @@
 <li><a href="{{ backpack_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
 
 
+<li><a href="{{ backpack_url('tipo_funcionario') }}"><i class='fa fa-link'></i> <span>Tipos de Funcionários</span></a></li>
+
+
 <li class="header">ENFERMAGEM</li>
-<li><a href='{{ backpack_url('doenca') }}'><i class='fa fa-link'></i> <span>Doenças</span></a></li>
+<li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-link'></i> <span>Doenças</span></a></li>
 
 <li class="treeview">
     <a href="#"><i class="fa fa-key"></i> <span>Roles & Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
