@@ -23,7 +23,7 @@ class FuncionarioCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Funcionario');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/funcionario');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/funcionarios');
         $this->crud->setEntityNameStrings('funcionário', 'funcionários');
 
         /*
@@ -53,7 +53,6 @@ class FuncionarioCrudController extends CrudController
             'model' => "App\Models\Funcionario"
         ]);
 
-
         $this->crud->addField([
 			'name' => 'nome',
             'label' => "Nome",
@@ -63,6 +62,19 @@ class FuncionarioCrudController extends CrudController
 			'name' => 'cpf',
             'label' => "CPF",
             'type' => 'text'
+        ]);
+
+        $this->crud->addField([ 
+            // Table
+            'name' => 'telefone',
+            'label' => 'Telefones',
+            'type' => 'table',
+            'entity_singular' => 'option', // used on the "Add X" button
+            'columns' => [
+                'name' => 'Número',
+            ],
+            'max' => 5, // maximum rows allowed in the table
+            'min' => 0 // minimum rows allowed in the table
         ]);
 
         $this->crud->addField([
