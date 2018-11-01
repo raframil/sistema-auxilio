@@ -1,3 +1,5 @@
+![Logo SAD](https://i.imgur.com/6bDlrWe.png)
+
 # Sistema SAD
 Sistema para o [Serviço de Atenção Domiciliar](http://portalms.saude.gov.br/acoes-e-programas/melhor-em-casa-servico-de-atencao-domiciliar/atencao-domiciliar)
 
