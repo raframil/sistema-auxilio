@@ -18,12 +18,12 @@ Ou utilizar o Docker do projeto, já configurado com PHP(Caddy), MySQL, PHPMyAdm
 
 ## Como instalar
 
-### Windows: 
+### Windows utilizando o Docker: 
 Execute o comando pelo cmd:
 
 >./run.bat
 
-### Linux:
+### Linux utilizando o Docker:
 Execute o comando pelo terminal:
 
 >chmod +x run.sh | ./run.sh
