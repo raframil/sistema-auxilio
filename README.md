@@ -9,6 +9,9 @@ Sistema para o [Serviço de Atenção Domiciliar](http://portalms.saude.gov.br/a
 
 Este projeto tem em mente a elaboração de um sistema para controle de pacientes e geração de relatórios para o programa "Serviço de Atenção Domiciliar" oferecido pelo SUS (Sistema Único de Saúde). O projeto está sendo desenvolvido em PHP utilizando o framework [Laravel](https://laravel.com/).
 
+## Documento de Requisitos
+https://docs.google.com/document/d/1Gb2wkDMzfGuW3ASHd61pZZdqGZjpUvjFp143yvT_Tjg/edit?usp=sharing
+
 
 ## Dependências:
 - [Requerimentos do Laravel](https://laravel.com/docs/5.7#server-requirements)
