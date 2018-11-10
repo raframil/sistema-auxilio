@@ -12,6 +12,10 @@ Este projeto tem em mente a elaboração de um sistema para controle de paciente
 ## Documento de Requisitos
 https://docs.google.com/document/d/1Gb2wkDMzfGuW3ASHd61pZZdqGZjpUvjFp143yvT_Tjg/edit?usp=sharing
 
+## Matriz de Rastreabilidade Bidirecional
+https://drive.google.com/file/d/19jaY5XBBi1jSXIEWKYjzUy3a24F6ky11/view?usp=sharing
+
+![ERD](https://imgur.com/0d9935c4-042a-4f27-b319-07b70a093a90)
 
 ## Dependências:
 - [Requerimentos do Laravel](https://laravel.com/docs/5.7#server-requirements)
