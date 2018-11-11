@@ -12,6 +12,9 @@ Este projeto tem em mente a elaboração de um sistema para controle de paciente
 ## Documento de Requisitos
 https://docs.google.com/document/d/1Gb2wkDMzfGuW3ASHd61pZZdqGZjpUvjFp143yvT_Tjg/edit?usp=sharing
 
+## Tabela de Estimativa de Esforço  
+https://docs.google.com/spreadsheets/d/1w5y1mN_W8CLXcGuzIpXCiCrntfkFdaF02LpfKHyG5Vk/edit?usp=sharing
+
 ## Matriz de Rastreabilidade Bidirecional
 https://drive.google.com/file/d/19jaY5XBBi1jSXIEWKYjzUy3a24F6ky11/view?usp=sharing
 
