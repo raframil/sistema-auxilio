@@ -17,7 +17,7 @@ class FuncionarioTelefone extends Model
 
     protected $table = 'funcionario_telefones';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
         'funcionario_id',
@@ -45,7 +45,7 @@ class FuncionarioTelefone extends Model
 
     public function funcionario()
     {
-        return $this->belongsTo('App\Models\Funcionario', 'id', 'funcionario_id');
+        return $this->belongsTo('App\Models\Funcionario', 'funcionario_id', 'id'); 
     }
 
     /*

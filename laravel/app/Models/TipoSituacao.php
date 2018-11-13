@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Funcionario extends Model
+class TipoSituacao extends Model
 {
     use CrudTrait;
 
@@ -15,14 +15,13 @@ class Funcionario extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'funcionarios';
+    protected $table = 'paciente_situacao_tipos';
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
         'nome',
-        'cpf',
-        'funcao'
+        'descricao'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -38,26 +37,6 @@ class Funcionario extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * Retorna o tipo de funcionario.
-     */
-    public function tipoFuncionario()
-    {
-        return $this->hasOne('App\Models\TipoFuncionario', 'id', 'funcao');
-    }
-
-    public function telefones()
-    {
-        return $this->hasManyThrough(
-            'App\Models\Telefone',
-            'App\Models\FuncionarioTelefone',
-            'funcionario_id',
-            'id',
-            'id',
-            'telefone_id'
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------
