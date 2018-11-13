@@ -21,8 +21,8 @@ https://drive.google.com/file/d/19jaY5XBBi1jSXIEWKYjzUy3a24F6ky11/view?usp=shari
 ![MRB](https://i.imgur.com/R6iMzOB.png)
 
 ## Cronograma
-Cronograma elaborado utilizando o MS Project e utilizando a tabela de estimativa de esforço como base para atribuição de esforço/tarefas.
-https://pt.scribd.com/document/392890649/Cronograma-ES1
+Cronograma elaborado utilizando o MS Project e utilizando a tabela de estimativa de esforço como base para atribuição de esforço/tarefas. Última atualização em 13/11
+https://www.scribd.com/document/392890649/Cronograma-ES1
 
 ## Dependências:
 - [Requerimentos do Laravel](https://laravel.com/docs/5.7#server-requirements)
