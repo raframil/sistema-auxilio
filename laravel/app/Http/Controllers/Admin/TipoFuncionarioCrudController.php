@@ -24,7 +24,7 @@ class TipoFuncionarioCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\TipoFuncionario');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/tipo_funcionario');
-        $this->crud->setEntityNameStrings('tipo de funcionário', 'tipos de funcionários');
+        $this->crud->setEntityNameStrings('Tipo de Funcionário', 'Tipos de Funcionários');
 
         /*
         |--------------------------------------------------------------------------

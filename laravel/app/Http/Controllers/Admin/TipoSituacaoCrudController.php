@@ -24,7 +24,7 @@ class TipoSituacaoCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\TipoSituacao');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/tipo_situacao');
-        $this->crud->setEntityNameStrings('Tipo de Situação', 'Tipo de Situações');
+        $this->crud->setEntityNameStrings('Tipo de Situação', 'Tipos de Situações');
 
         /*
         |--------------------------------------------------------------------------

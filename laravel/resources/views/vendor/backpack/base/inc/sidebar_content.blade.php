@@ -6,26 +6,26 @@
 
 
 
-<li><a href="{{ backpack_url('funcionarios') }}"><i class='fa fa-link'></i> <span>Funcionários</span></a></li>
+<li><a href="{{ backpack_url('funcionarios') }}"><i class='fa fa-briefcase'></i> <span>Funcionários</span></a></li>
 
 
 <li class="header">ENFERMAGEM</li>
-<li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-link'></i> <span>Doenças</span></a></li>
+<li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-archive'></i> <span>Doenças</span></a></li>
 
-
+<li class="header">CONFIGURAÇÕES</li>
 <li class="treeview">
-    <a href="#"><i class="fa fa-gear"></i> <span>Configurações</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-gear"></i> <span>Sistema</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         <li>
-            <li><a href="{{ backpack_url('tipo_funcionario') }}"><i class='fa fa-link'></i> <span>Tipos de Funcionários</span></a></li>
-            <li><a href="{{ backpack_url('tipo_situacao') }}"><i class='fa fa-link'></i> <span>Tipos de Situações</span></a></li>
+            <li><a href="{{ backpack_url('tipo_funcionario') }}"><i class='fa fa-user'></i> <span>Tipos de Funcionários</span></a></li>
+            <li><a href="{{ backpack_url('tipo_situacao') }}"><i class='fa fa-book'></i> <span>Tipos de Situações</span></a></li>
         </li>
     </ul>
 </li>
 
 <!-- Users, Roles Permissions -->
 <li class="treeview">
-    <a href="#"><i class="fa fa-group"></i> <span>Configurações de Usuário  </span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-group"></i> <span>Usuários  </span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
       <li><a href="{{ backpack_url('user') }}"><i class="fa fa-user"></i> <span>Usuários</span></a></li>
       <li><a href="{{ backpack_url('role') }}"><i class="fa fa-group"></i> <span>Papéis</span></a></li>

@@ -27,7 +27,7 @@ class FuncionarioCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Funcionario');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/funcionarios');
-        $this->crud->setEntityNameStrings('funcionário', 'funcionários');
+        $this->crud->setEntityNameStrings('Funcionário', 'Funcionários');
 
         //$this->crud->enableDetailsRow();
 
@@ -102,7 +102,7 @@ class FuncionarioCrudController extends CrudController
             'attribute' => 'nome',              // foreign key attribute that is shown to user
             'model' => "App\Models\TipoFuncionario"
         ]);
-
+        /*
         $this->crud->addField([
             'name' => 'telefone1',
             'label' => "Telefone Residencial",
@@ -115,7 +115,7 @@ class FuncionarioCrudController extends CrudController
             'entity' => 'telefones',       // the method that defines the relationship in your Model
             'attribute' => 'telefone',     // foreign key attribute that is shown to user
             'model' => "App\Models\Funcionario"
-        ]);
+        ]);*/
 
         
 
