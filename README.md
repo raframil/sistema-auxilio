@@ -48,4 +48,4 @@ Utilizar a ferramenta [Visual Paradigm](https://www.visual-paradigm.com/download
 Versão 0.1: 
 https://i.imgur.com/mWLVSmz.jpg
 Versão 0.2 (Att em 14/11):
-![ERD](https://imgur.com/a/WmynE5I)
+![ERD](https://i.imgur.com/ooZu9lW.png)
