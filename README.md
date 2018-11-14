@@ -52,4 +52,4 @@ https://i.imgur.com/mWLVSmz.jpg
 Versão 0.2 (Att em 14/11):
 ![ERD](https://i.imgur.com/ooZu9lW.png)
 
-#Download do Banco: https://www.dropbox.com/sh/yturfrmyczao2oa/AACcQMpIJBnQ0NCypAAtlZBla?dl=0
+-- Download do Banco: https://www.dropbox.com/sh/yturfrmyczao2oa/AACcQMpIJBnQ0NCypAAtlZBla?dl=0
