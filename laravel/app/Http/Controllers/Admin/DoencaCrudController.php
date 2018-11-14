@@ -24,7 +24,7 @@ class DoencaCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Doenca');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/doenca');
-        $this->crud->setEntityNameStrings('doença', 'doenças');
+        $this->crud->setEntityNameStrings('Doença', 'Doenças');
 
         /*
         |--------------------------------------------------------------------------

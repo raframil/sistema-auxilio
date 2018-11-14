@@ -12,23 +12,23 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Backpack',
+    'project_name' => 'SADSUS',
 
     // Menu logos
-    'logo_lg'   => '<img src="http://www.osarrafo.com.br/v1/wp-content/uploads/2013/08/Logomarca-do-Programa-Melhor-em-Casa-Governo-Federal.png" style="width:30%">',
+    'logo_lg'   => '<img src="https://camo.githubusercontent.com/d78a89cd607e3e03458c966a363033934670bf65/68747470733a2f2f692e696d6775722e636f6d2f3662446c7257652e706e67" style="width:60%">',
     'logo_mini' => 'SAD',
 
     // Developer or company name. Shown in footer.
-    'developer_name' => '----',
+    'developer_name' => 'https://github.com/raframil/sistema-auxilio',
 
     // Developer website. Link in footer.
-    'developer_link' => 'google.com',
+    'developer_link' => 'https://github.com/raframil/sistema-auxilio',
 
     // Show powered by Laravel Backpack in the footer?
-    'show_powered_by' => true,
+    'show_powered_by' => false,
 
     // The AdminLTE skin. Affects menu color and primary/secondary colors used throughout the application.
-    'skin' => 'skin-purple',
+    'skin' => 'skin-black',
     // Options: skin-black, skin-blue, skin-purple, skin-red, skin-yellow, skin-green, skin-blue-light, skin-black-light, skin-purple-light, skin-green-light, skin-red-light, skin-yellow-light
 
     // Date & Datetime Format Syntax: https://github.com/jenssegers/date#usage

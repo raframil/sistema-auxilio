@@ -49,7 +49,14 @@ class Funcionario extends Model
 
     public function telefones()
     {
-        return $this->hasMany('App\Models\FuncionarioTelefone');
+        return $this->hasManyThrough(
+            'App\Models\Telefone',
+            'App\Models\FuncionarioTelefone',
+            'funcionario_id',
+            'id',
+            'id',
+            'telefone_id'
+        );
     }
 
     /*

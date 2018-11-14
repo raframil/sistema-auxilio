@@ -17,7 +17,7 @@ class Telefone extends Model
 
     protected $table = 'telefones';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
         'telefone'
@@ -36,6 +36,10 @@ class Telefone extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function funcionarioTelefone()
+    {
+        return $this->belongsTo('App\Models\FuncionarioTelefone', 'telefone_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
