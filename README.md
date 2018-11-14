@@ -45,7 +45,9 @@ Execute o comando pelo terminal:
 ## Modelagem do Banco de Dados
 
 Utilizar a ferramenta [Visual Paradigm](https://www.visual-paradigm.com/download/community.jsp) para realizar quaisquer mudanças no modelo.
+
 Versão 0.1: 
 https://i.imgur.com/mWLVSmz.jpg
+
 Versão 0.2 (Att em 14/11):
 ![ERD](https://i.imgur.com/ooZu9lW.png)
