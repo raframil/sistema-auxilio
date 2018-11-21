@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Telefone extends Model
+class Paciente extends Model
 {
     use CrudTrait;
 
@@ -15,12 +15,17 @@ class Telefone extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'telefones';
+    protected $table = 'pacientes';
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'telefone'
+        'nome',
+        'data_nascimento',
+        'data_inclusao',
+        'cartao_sus',
+        'prontuario',
+        'diagnostico'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -36,16 +41,35 @@ class Telefone extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function funcionarioTelefone()
+
+    public function telefones()
     {
-        return $this->belongsTo('App\Models\FuncionarioTelefone', 'telefone_id', 'id');
+        return $this->hasManyThrough(
+            'App\Models\Telefone',
+            'App\Models\PacienteTelefone',
+            'paciente_id',
+            'id',
+            'id',
+            'telefone_id'
+        );
     }
 
-    public function pacienteTelefone()
+    public function enderecos()
     {
-        return $this->belongsTo('App\Models\PacienteTelefone', 'telefone_id', 'id');
+        return $this->hasManyThrough(
+            'App\Models\Endereco',
+            'App\Models\PacienteEndereco',
+            'paciente_id',
+            'id',
+            'id',
+            'endereco_id'
+        );
     }
-
+    
+    public function cuidadores() 
+    {
+        return $this->hasMany('App\Models\Cuidador', 'paciente_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

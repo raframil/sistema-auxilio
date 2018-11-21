@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\TelefoneRequest as StoreRequest;
-use App\Http\Requests\TelefoneRequest as UpdateRequest;
+use App\Http\Requests\CuidadorRequest as StoreRequest;
+use App\Http\Requests\CuidadorRequest as UpdateRequest;
 
 /**
- * Class TelefoneCrudController
+ * Class CuidadorCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class TelefoneCrudController extends CrudController
+class CuidadorCrudController extends CrudController
 {
     public function setup()
     {
@@ -22,10 +22,9 @@ class TelefoneCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Telefone');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/telefones');
-        $this->crud->setEntityNameStrings('Telefone', 'Telefones');
-        $this->crud->removeButton('create');
+        $this->crud->setModel('App\Models\Cuidador');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/cuidador');
+        $this->crud->setEntityNameStrings('Cuidador', 'Cuidadores');
 
         /*
         |--------------------------------------------------------------------------
@@ -33,10 +32,36 @@ class TelefoneCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        $this->crud->addColumn([
+            'name' => 'nome', 
+            'label' => "Nome",
+            'type' => 'text'
+        ]);
 
-        // add asterisk for fields that are required in TelefoneRequest
+        $this->crud->addColumn([
+			'name' => 'id',                   
+            'label' => "Paciente",
+            'type' => 'select',     
+            'entity' => 'pacientes',       
+            'attribute' => 'nome',              
+            'model' => "App\Models\Cuidador"
+        ]); 
+
+        $this->crud->addField([
+			'name' => 'nome',
+            'label' => "Nome",
+            'type' => 'text'
+        ]);
+        $this->crud->addField([
+			'name' => 'paciente_id',                    
+            'label' => "Paciente",
+            'type' => 'select2',     
+            'entity' => 'pacientes',       
+            'attribute' => 'nome',              
+            'model' => "App\Models\Paciente"
+        ]);   
+
+        // add asterisk for fields that are required in CuidadorRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }
