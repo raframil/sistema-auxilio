@@ -18,4 +18,9 @@ Route::group([
     CRUD::resource('funcionarios', 'FuncionarioCrudController');
     CRUD::resource('funcionario_telefone', 'FuncionarioTelefoneCrudController');
     CRUD::resource('tipo_situacao', 'TipoSituacaoCrudController');
+    CRUD::resource('paciente', 'PacienteCrudController');
+    //CRUD::resource('paciente_endereco', 'PacienteEnderecoCrudController');
+    CRUD::resource('enderecos', 'EnderecoCrudController');
+    CRUD::resource('cuidador', 'CuidadorCrudController');
+    CRUD::resource('telefones', 'TelefoneCrudController');
 }); // this should be the absolute last line of this file

@@ -81,7 +81,7 @@ class FuncionarioCrudController extends CrudController
             'type' => 'text'
         ]);
 
-        /*$this->crud->addField([ 
+        $this->crud->addField([ 
             // Table
             'name' => 'telefone',
             'label' => 'Telefones',
@@ -91,8 +91,8 @@ class FuncionarioCrudController extends CrudController
                 'telefone' => 'Número',
             ],
             'max' => 2, // maximum rows allowed in the table
-            'min' => 1 // minimum rows allowed in the table
-        ]);*/
+            'min' => 0 // minimum rows allowed in the table
+        ], 'create');
 
         $this->crud->addField([
 			'name' => 'funcao',                    // the column that contains the ID of that connected entity;
@@ -101,23 +101,7 @@ class FuncionarioCrudController extends CrudController
             'entity' => 'tipoFuncionario',       // the method that defines the relationship in your Model
             'attribute' => 'nome',              // foreign key attribute that is shown to user
             'model' => "App\Models\TipoFuncionario"
-        ]);
-        /*
-        $this->crud->addField([
-            'name' => 'telefone1',
-            'label' => "Telefone Residencial",
-            'type' => 'text'
-        ]);
-        $this->crud->addField([
-            'name' => 'telefone2',
-            'label' => "Telefone Celular",
-            'type' => 'text',
-            'entity' => 'telefones',       // the method that defines the relationship in your Model
-            'attribute' => 'telefone',     // foreign key attribute that is shown to user
-            'model' => "App\Models\Funcionario"
-        ]);*/
-
-        
+        ]);       
 
         // add asterisk for fields that are required in FuncionarioRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');

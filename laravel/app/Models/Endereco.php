@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Telefone extends Model
+class Endereco extends Model
 {
     use CrudTrait;
 
@@ -15,12 +15,17 @@ class Telefone extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'telefones';
+    protected $table = 'enderecos';
     // protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'telefone'
+        'cep',
+        'rua',
+        'bairro',
+        'cidade',
+        'uf',
+        'complemento'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -36,14 +41,9 @@ class Telefone extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function funcionarioTelefone()
+    public function pacienteEndereco()
     {
-        return $this->belongsTo('App\Models\FuncionarioTelefone', 'telefone_id', 'id');
-    }
-
-    public function pacienteTelefone()
-    {
-        return $this->belongsTo('App\Models\PacienteTelefone', 'telefone_id', 'id');
+        return $this->belongsTo('App\Models\PacienteEndereco', 'endereco_id', 'id');
     }
 
     /*
