@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Support\Facades\DB;
 
 class Funcionario extends Model
 {
@@ -22,7 +23,9 @@ class Funcionario extends Model
     protected $fillable = [
         'nome',
         'cpf',
-        'funcao'
+        'funcao',
+        'telefone_principal',
+        'telefone_secundario'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -32,6 +35,11 @@ class Funcionario extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function editTelefone($crud = false)
+    {
+        $telefone_id = DB::table('telefones_funcionario')->where('funcionario_id', $this->id)->first();
+        return '<a class="btn btn-xs btn-default" target="_blank" href="funcionario_telefones/'.$telefone_id->id.'/edit" data-toggle="tooltip" title="Just a demo custom button."><i class="fa fa-phone"></i> Editar Telefone</a>';
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -45,18 +53,6 @@ class Funcionario extends Model
     public function tipoFuncionario()
     {
         return $this->hasOne('App\Models\TipoFuncionario', 'id', 'funcao');
-    }
-
-    public function telefones()
-    {
-        return $this->hasManyThrough(
-            'App\Models\Telefone',
-            'App\Models\FuncionarioTelefone',
-            'funcionario_id',
-            'id',
-            'id',
-            'telefone_id'
-        );
     }
 
     /*

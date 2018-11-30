@@ -6,19 +6,13 @@
 
 
 
-<li><a href="{{ backpack_url('funcionarios') }}"><i class='fa fa-briefcase'></i> <span>Funcionários</span></a></li>
+<li><a href="{{ backpack_url('funcionarios') }}"><i class="fa fa-briefcase"></i> <span>Funcionários</span></a></li>
 
 
 <li class="header">ENFERMAGEM</li>
-<li class="treeview">
-    <a href="#"><i class="fa fa-group"></i> <span>Pacientes  </span> <i class="fa fa-angle-left pull-right"></i></a>
-    <ul class="treeview-menu">
-      <li><a href="{{ backpack_url('paciente') }}"><i class="fa fa-group"></i> <span>Pacientes</span></a></li>
-      <li><a href="{{ backpack_url('cuidador') }}"><i class="fa fa-group"></i> <span>Cuidadores</span></a></li>
-      <li><a href="{{ backpack_url('enderecos') }}"><i class="fa fa-key"></i> <span>Endereços</span></a></li>
-      <li><a href="{{ backpack_url('telefones') }}"><i class="fa fa-key"></i> <span>Telefones</span></a></li>
-    </ul>
-  </li>
+
+<li><a href="{{ backpack_url('paciente') }}"><i class="fa fa-hotel"></i> <span>Pacientes</span></a></li>
+<li><a href="{{ backpack_url('cuidador') }}"><i class="fa fa-user-md"></i> <span>Cuidadores</span></a></li>
 <li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-archive'></i> <span>Doenças</span></a></li>
 
 <li class="header">CONFIGURAÇÕES</li>

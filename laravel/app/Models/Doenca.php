@@ -38,6 +38,10 @@ class Doenca extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function pacientes() 
+    {
+        return $this->hasMany('App\Models\Paciente');
+    }
 
     /*
     |--------------------------------------------------------------------------
