@@ -28,7 +28,9 @@ class FuncionarioRequest extends FormRequest
         return [
             'nome' => 'required|max:255',
             'cpf' => 'required|min:11|max:11',
-            'funcao' => 'required'
+            'funcao' => 'required',
+            'telefone_principal' => 'required|max:45',
+            'telefone_secundario' => 'max:45'
         ];
     }
 
@@ -57,6 +59,9 @@ class FuncionarioRequest extends FormRequest
             'cpf.required' => 'O campo CPF precisa ser preenchido.',
             'cpf.max' => 'O campo CPF não deve exceder :max caracteres.',
             'funcao.required' => 'O campo função precisa ser selecionado.',
+            'telefone_principal.required' => 'O campo Telefone Principal precisa ser preenchido.',
+            'telefone_principal.max' => 'O campo Telefone Principal não deve exceder :max caracteres.',
+            'telefone_secundario.max' => 'O campo Telefone Secundário não deve exceder :max caracteres.',
         ];
     }
 }

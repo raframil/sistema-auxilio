@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Support\Facades\DB;
 
 class Paciente extends Model
 {
@@ -25,7 +26,10 @@ class Paciente extends Model
         'data_inclusao',
         'cartao_sus',
         'prontuario',
-        'diagnostico'
+        'diagnostico',
+        'endereco',
+        'telefone_principal',
+        'telefone_secundario'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -41,34 +45,15 @@ class Paciente extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function telefones()
-    {
-        return $this->hasManyThrough(
-            'App\Models\Telefone',
-            'App\Models\PacienteTelefone',
-            'paciente_id',
-            'id',
-            'id',
-            'telefone_id'
-        );
-    }
-
-    public function enderecos()
-    {
-        return $this->hasManyThrough(
-            'App\Models\Endereco',
-            'App\Models\PacienteEndereco',
-            'paciente_id',
-            'id',
-            'id',
-            'endereco_id'
-        );
-    }
-    
     public function cuidadores() 
     {
         return $this->hasMany('App\Models\Cuidador', 'paciente_id', 'id');
+    }
+
+    public function doencas() 
+    {
+        // 1 paciente tem N doenças
+        return $this->belongsToMany('App\Models\Doenca', 'paciente_doencas');
     }
     /*
     |--------------------------------------------------------------------------

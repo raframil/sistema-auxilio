@@ -32,6 +32,9 @@ class PacienteRequest extends FormRequest
             'cartao_sus' => 'required|max:255',
             'prontuario' => 'required|max:255',
             'diagnostico' => 'max:255',
+            'endereco' => 'required',
+            'telefone_principal' => 'required|max:45',
+            'telefone_secundario' => 'max:45'
         ];
     }
 
@@ -64,6 +67,11 @@ class PacienteRequest extends FormRequest
             'prontuario.required' => 'O campo Prontuário precisa ser preenchido.',
             'prontuario.max' => 'O campo prontuário não deve exceder :max caracteres.',
             'diagnostico.max' => 'O campo diagnóstico não deve exceder :max caracteres.',
+            'endereco.required' => 'O campo Endereço precisa ser preenchido.',
+            'endereco.max' => 'O campo Endereço não deve exceder :max caracteres.',
+            'telefone_principal.required' => 'O campo Telefone Principal precisa ser preenchido.',
+            'telefone_principal.max' => 'O campo Telefone Principal não deve exceder :max caracteres.',
+            'telefone_secundario.max' => 'O campo Telefone Secundário não deve exceder :max caracteres.',
         ];
     }
 }
