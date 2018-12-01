@@ -8,7 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\DB;
 
-class DashboardController extends BaseController
+class PacienteRelatorioController extends BaseController
 {
 
 
@@ -17,6 +17,29 @@ class DashboardController extends BaseController
         $numeroPacientes = DB::table('pacientes')->count();
         $numeroFuncionarios = DB::table('funcionarios')->count();
         $pacientesIdade = DB::table('pacientes')->select('data_nascimento')->get();
+
+        $doencas = DB::table('doencas')->get();
+        
+        // Pega as 5 primeiras doencas mais recorrentes e salva em um vetor
+        $pacienteDoencas = DB::table('paciente_doencas')
+        ->select((DB::raw('doenca_id')), DB::raw('count(*) as count'))
+        ->groupBy('doenca_id')
+        ->orderBy('count', 'desc')
+        ->take(10)
+        ->get();
+        $paciente_doencas_array = array();
+        //dd($pacienteDoencas);
+        foreach ($pacienteDoencas as $key => $pacienteDoenca) {
+            echo $pacienteDoenca->count;
+            $paciente_doencas_array[$key]['nome'] = $doencas[$key]->nome;
+            $paciente_doencas_array[$key]['count'] = $pacienteDoenca->count;
+        } 
+  
+        // Seleciona todas doencas e coloca seus respectivos nomes em um array
+        $doencas_array = array();
+        foreach($doencas as $doenca) {
+          $doencas_array[] = $doenca->nome; 
+        }
         
         // Seleciona as idades dos pacientes e salva em um array
         $pacientes_idade_array = array();
@@ -33,12 +56,12 @@ class DashboardController extends BaseController
         }
         $mediaIdade = $sum_idade / count($pacientes_idade_array);
 
-
-
-        return view('dashboard', [
+        return view('paciente_relatorio', [
             'numeroPacientes' => $numeroPacientes,
             'numeroFuncionarios' => $numeroFuncionarios,
-            'mediaIdade' => $mediaIdade
+            'mediaIdade' => $mediaIdade,
+            'doencas' => $doencas_array,
+            'contDoencas' => $paciente_doencas_array,
         ]);
 
         

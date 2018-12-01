@@ -15,6 +15,10 @@
 <li><a href="{{ backpack_url('cuidador') }}"><i class="fa fa-user-md"></i> <span>Cuidadores</span></a></li>
 <li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-archive'></i> <span>Doenças</span></a></li>
 
+<li class="header">RELATÓRIOS</li>
+    <li><a href="{{ backpack_url('paciente_relatorio') }}"><i class="fa fa-bar-chart"></i> <span>Pacientes x Doenças</span></a></li>
+</li>
+
 <li class="header">CONFIGURAÇÕES</li>
 <li class="treeview">
     <a href="#"><i class="fa fa-gear"></i> <span>Sistema</span> <i class="fa fa-angle-left pull-right"></i></a>
