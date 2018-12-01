@@ -19,4 +19,5 @@ Route::group([
     CRUD::resource('tipo_situacao', 'TipoSituacaoCrudController');
     CRUD::resource('paciente', 'PacienteCrudController');
     CRUD::resource('cuidador', 'CuidadorCrudController');
+    Route::get('/paciente_relatorio', 'PacienteRelatorioController@index');
 }); // this should be the absolute last line of this file

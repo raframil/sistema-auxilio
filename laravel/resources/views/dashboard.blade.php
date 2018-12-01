@@ -10,10 +10,8 @@
         <li class="active">{{ trans('backpack::base.dashboard') }}</li>
       </ol>
     </section>
+    
 @endsection
-
-
-
 
 @section('content')
     <div class="row">
