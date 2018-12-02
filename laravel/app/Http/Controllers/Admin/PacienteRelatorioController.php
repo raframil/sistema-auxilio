@@ -7,40 +7,57 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class PacienteRelatorioController extends BaseController
 {
-
-
-    function index() 
-    {
+    function index(Request $request) 
+    {   
+        if ($request->selectOrder) {
+            $ordenacao = $request->selectOrder;
+        }
+        if ($request->qtd_result) {
+            $qtd_result = $request->qtd_result;
+        }
         $numeroPacientes = DB::table('pacientes')->count();
-        $numeroFuncionarios = DB::table('funcionarios')->count();
         $pacientesIdade = DB::table('pacientes')->select('data_nascimento')->get();
 
         $doencas = DB::table('doencas')->get();
-        
-        // Pega as 5 primeiras doencas mais recorrentes e salva em um vetor
-        $pacienteDoencas = DB::table('paciente_doencas')
-        ->select((DB::raw('doenca_id')), DB::raw('count(*) as count'))
-        ->groupBy('doenca_id')
-        ->orderBy('count', 'desc')
-        ->take(10)
-        ->get();
-        $paciente_doencas_array = array();
-        //dd($pacienteDoencas);
-        foreach ($pacienteDoencas as $key => $pacienteDoenca) {
-            echo $pacienteDoenca->count;
-            $paciente_doencas_array[$key]['nome'] = $doencas[$key]->nome;
-            $paciente_doencas_array[$key]['count'] = $pacienteDoenca->count;
-        } 
-  
         // Seleciona todas doencas e coloca seus respectivos nomes em um array
         $doencas_array = array();
-        foreach($doencas as $doenca) {
-          $doencas_array[] = $doenca->nome; 
+        foreach($doencas as $key => $doenca) {
+            $doencas_array[$key]['nome'] = $doenca->nome; 
+            $doencas_array[$key]['doenca_id'] = $doenca->id; 
         }
-        
+
+        // Pega as 5 primeiras doencas mais recorrentes e salva em um vetor
+        if((isset($ordenacao)) && isset($qtd_result)){
+            $pacienteDoencas = DB::table('paciente_doencas')
+            ->select((DB::raw('doenca_id')), DB::raw('count(*) as count'))
+            ->groupBy('doenca_id')
+            ->orderBy('count', $ordenacao)
+            ->take($qtd_result)
+            ->get();
+        } else {
+            $pacienteDoencas = DB::table('paciente_doencas')
+            ->select((DB::raw('doenca_id')), DB::raw('count(*) as count'))
+            ->groupBy('doenca_id')
+            ->orderBy('count', 'desc')
+            ->take(10)
+            ->get();
+        }
+        $paciente_doencas_array = array();
+        foreach ($pacienteDoencas as $key => $pacienteDoenca) {
+            $paciente_doencas_array[$key]['doenca_id'] = $pacienteDoenca->doenca_id;
+            $paciente_doencas_array[$key]['count'] = $pacienteDoenca->count;
+        } 
+
+        foreach ($pacienteDoencas as $key => $pacienteDoenca) {
+            $id = $paciente_doencas_array[$key]['doenca_id'];
+            $foundKey = array_search($id, array_column($doencas_array, 'doenca_id'));
+            $paciente_doencas_array[$key]['nome'] = $doencas_array[$foundKey]['nome'];
+        }
+
         // Seleciona as idades dos pacientes e salva em um array
         $pacientes_idade_array = array();
         foreach ($pacientesIdade as $pacienteIdade) {
@@ -58,12 +75,10 @@ class PacienteRelatorioController extends BaseController
 
         return view('paciente_relatorio', [
             'numeroPacientes' => $numeroPacientes,
-            'numeroFuncionarios' => $numeroFuncionarios,
             'mediaIdade' => $mediaIdade,
             'doencas' => $doencas_array,
-            'contDoencas' => $paciente_doencas_array,
-        ]);
-
-        
+            'dadosDoencas' => $paciente_doencas_array,
+        ]);        
     } 
+
 }
