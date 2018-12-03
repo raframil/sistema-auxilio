@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
-use Illuminate\Support\Facades\DB;
 
-class Funcionario extends Model
+class Visita extends Model
 {
     use CrudTrait;
 
@@ -16,16 +15,17 @@ class Funcionario extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'funcionarios';
-    // protected $primaryKey = 'id';
+    protected $table = 'visitas';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'nome',
-        'cpf',
-        'funcao',
-        'telefone_principal',
-        'telefone_secundario'
+        'data',
+        'hora',
+        'paciente_id',
+        'funcionario_id',
+        'semanal',
+        'mensal'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -35,29 +35,20 @@ class Funcionario extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function editTelefone($crud = false)
-    {
-        $telefone_id = DB::table('telefones_funcionario')->where('funcionario_id', $this->id)->first();
-        return '<a class="btn btn-xs btn-default" target="_blank" href="funcionario_telefones/'.$telefone_id->id.'/edit" data-toggle="tooltip" title="Just a demo custom button."><i class="fa fa-phone"></i> Editar Telefone</a>';
-    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * Retorna o tipo de funcionario.
-     */
-    public function tipoFuncionario()
+    public function pacientes()
     {
-        return $this->hasOne('App\Models\TipoFuncionario', 'id', 'funcao');
+        return $this->hasOne('App\Models\Paciente', 'id', 'paciente_id');
     }
 
-    public function visitas()
+    public function funcionarios()
     {
-        return $this->hasMany('App\Models\Visita', 'funcionario_id', 'id');
+        return $this->hasOne('App\Models\Funcionario', 'id', 'funcionario_id');
     }
 
     /*

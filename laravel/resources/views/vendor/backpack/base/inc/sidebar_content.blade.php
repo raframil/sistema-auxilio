@@ -14,6 +14,7 @@
 <li><a href="{{ backpack_url('paciente') }}"><i class="fa fa-hotel"></i> <span>Pacientes</span></a></li>
 <li><a href="{{ backpack_url('cuidador') }}"><i class="fa fa-user-md"></i> <span>Cuidadores</span></a></li>
 <li><a href="{{ backpack_url('doenca') }}"><i class='fa fa-archive'></i> <span>Doenças</span></a></li>
+<li><a href="{{ backpack_url('visita') }}"><i class='fa fa-archive'></i> <span>Visitas</span></a></li>
 
 <li class="header">RELATÓRIOS</li>
     <li><a href="{{ backpack_url('paciente_relatorio') }}"><i class="fa fa-bar-chart"></i> <span>Pacientes x Doenças</span></a></li>

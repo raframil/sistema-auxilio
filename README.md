@@ -1,3 +1,4 @@
+
 ![Logo SAD](https://i.imgur.com/6bDlrWe.png)
 
 # Sistema SAD
@@ -32,7 +33,7 @@ Ou utilizar o Docker do projeto, já configurado com PHP(Caddy), MySQL, PHPMyAdm
 
 ## Como instalar
 
-### Windows utilizando o Docker: 
+### Windows utilizando o Docker:
 Execute o comando pelo cmd:
 
 >./run.bat
@@ -42,11 +43,87 @@ Execute o comando pelo terminal:
 
 >chmod +x run.sh | ./run.sh
 
+### Linux por linha de comando
+
+#### Preparação
+
+##### Atualize o apt
+>sudo apt-get update && apt-get upgrade
+
+##### Instale as dependências
+>sudo apt-get install composer apache2 libapache2-mod-php mysql-server php php-mbstring php-pear php-dev php-zip php-curl php-gd php-mysql php-mcrypt php-xml libapache2-mod-php
+
+##### Instale o laravel
+>composer global require laravel/installer
+
+##### Abra o diretório referente ao seu localhost: (ex. /var/www ou /opt/lampp/htdocs)
+>cd /var/www
+
+##### Clone o repositório
+>git clone https://github.com/raframil/sistema-auxilio.git
+
+##### Abra o diretório clonado e extraia a pasta laravel
+>cd sistema-auxilio
+>sudo mv laravel ..
+>cd ..
+>rm -rf sistema-auxilio
+
+#### Configurando o banco de dados
+
+##### Execute o mysql shell
+>mysql -u root -p
+
+Será solicitada a senha, digite-a.
+
+##### Crie o banco de dados (Ex. sad)
+>mysql> create database sad;
+
+##### Saia do shell
+>mysql> exit
+
+##### Baixe o arquivo .sql do banco de dados no link:
+https://www.dropbox.com/sh/yturfrmyczao2oa/AACcQMpIJBnQ0NCypAAtlZBla?dl=0
+
+##### Abra a pasta onde o arquivo foi baixado
+>cd ~/Downloads
+
+##### Importe os dados do arquivo para o banco de dados
+>mysql -u root -p sad < sad.sql
+
+#### Instalação
+
+##### Abra o diretório do laravel: (ex. /var/www/laravel)
+>cd /var/www/laravel
+
+##### Instale o composer
+>composer install
+
+##### Crie um novo arquivo .env
+>cp .env.example .env
+
+##### Gere uma chave de encriptação
+>php artisan key:generate
+
+##### Abra o arquivo .env
+>sudo gedit .env
+
+##### Localize e modifique as seguintes linhas
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=[NOME-DO-BD]
+    DB_USERNAME=[USUÁRIO-DO-BD]
+    DB_PASSWORD=[SENHA-DO-BD]
+
+#### Inicialize o servidor
+>php artisan serve
+
 ## Modelagem do Banco de Dados
 
 Utilizar a ferramenta [Visual Paradigm](https://www.visual-paradigm.com/download/community.jsp) para realizar quaisquer mudanças no modelo.
 
-Versão 0.1: 
+Versão 0.1:
 https://i.imgur.com/mWLVSmz.jpg
 
 Versão 0.2 (Att em 14/11):
