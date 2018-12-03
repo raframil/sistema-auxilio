@@ -45,12 +45,17 @@ class Paciente extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function cuidadores() 
+    public function cuidadores()
     {
         return $this->hasMany('App\Models\Cuidador', 'paciente_id', 'id');
     }
 
-    public function doencas() 
+    public function visitas()
+    {
+        return $this->hasMany('App\Models\Visita', 'paciente_id', 'id');
+    }
+
+    public function doencas()
     {
         // 1 paciente tem N doenças
         return $this->belongsToMany('App\Models\Doenca', 'paciente_doencas');
