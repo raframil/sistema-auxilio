@@ -8,6 +8,9 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\PacienteRequest as StoreRequest;
 use App\Http\Requests\PacienteRequest as UpdateRequest;
 
+use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\json_decode;
+
 /**
  * Class PacienteCrudController
  * @package App\Http\Controllers\Admin
@@ -64,15 +67,15 @@ class PacienteCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name' => "endereco->name",
-            'label' => 'Endereço',
-            'type' => 'array',
-        ]);
-
-        $this->crud->addColumn([
             'name' => 'telefone_principal', 
             'label' => "Telefone", 
             'type' => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'endereco', 
+            'label' => "Endereço", 
+            'type' => 'enderecoTable'
         ]);
 
         $this->crud->addColumn([
@@ -190,4 +193,5 @@ class PacienteCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
 }
